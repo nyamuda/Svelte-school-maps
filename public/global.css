@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto+Mono:wght@300&family=Roboto:wght@300;400;700;900&family=Titillium+Web:wght@400;700;900&display=swap");
+
+:root {
+  /* Page sizes */
+  --pageWidth: 100%;
+  --pageMaxWidth: 100%;
+
+  /* Colors */
+  --bodyText: rgb(32, 32, 32);
+  --lightGreen: #ddeaea;
+  --green: #568584;
+  --darkGreen: #084948;
+  --red: #bd3131;
+  --blue: #084081;
+  --gray100: #e6e6e6;
+  --gray200: #cccccc;
+  --gray300: #b3b3b3;
+  --gray400: #999999;
+  --gray500: #808080;
+  --gray600: #666666;
+  --gray700: #4d4d4d;
+  --gray800: #333333;
+  --gray900: #1a1a1a;
+  --white: #ffffff;
+  --black: rgb(0, 0, 0);
+
+  /* Element Types */
+  --link: var(--green);
+  --linkHover: var(--darkGreen);
+  --highlight: var(--green);
+  --gridGrey: var(--gray300);
+  --tooltipBackground: var(--white);
+
+  /* Fonts */
+  --bodyFont: "PT Serif", "Times New Roman", Times, serif;
+  --headerFont: "Titillium Web", "Roboto", Arial, Helvetica, sans-serif;
+  --figureFont: "Titillium Web", "Roboto", Arial, Helvetica, sans-serif;
+  --tooltipFont: "Titillium Web", "Roboto", Arial, Helvetica, sans-serif;
+  --sansFont: "Titillium Web", "Roboto", Arial, Helvetica, sans-serif;
+  --serifFont: "PT Serif", "Times New Roman", Times, serif;
+
+  /* Font Styles */
+  --bodyLineHeight: 1rem;
+  --bodySize: 1rem;
+
+  /* LineHeight */
+  bodyheight: 1.2rem;
+
+  /* Chart Styles */
+  --chartLabel: 0.9rem;
+  --chartLine: 1rem;
+  --chartLineMedium: 3px;
+  --chartLineThick: 5px;
+  --chartLineExtraThick: 10px;
+  --dashes: 2, 2;
+  --indicatorDashes: 3, 2;
+
+  /* Other */
+  --areaOpacity: 0.1;
+  --transparent: #ffffff00;
+  --hover: #eee;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  display: block;
+  color: var(--bodyText);
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--bodyFont);
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.3rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--linkHover);
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--headerFont);
+  line-height: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+  margin: 1.3rem 0;
+}
+h4 {
+  font-size: 1.5rem;
+  margin: 1.1rem 0;
+}
+h5 {
+  font-size: 1.2rem;
+  margin: 1.1rem 0;
+}
+figure {
+  padding: 0;
+  margin: 0;
+  font-family: var(--figureFont);
+  margin-top: 30px;
+  position: relative;
+  display: block;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border: solid 1px var(--white);
+  background: var(--gray300);
+  color: var(--black);
+}
+td {
+  border: solid 1px var(--gray300);
+  padding: 1px 5px;
+  font-size: 0.9rem;
+}
+
+header {
+  width: var(--pageWidth);
+  max-width: var(--pageMaxWidth);
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--headerFont);
+}
+
+nav {
+  width: var(--pageWidth);
+  max-width: var(--pageMaxWidth);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: none;
+  padding: 0px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+main {
+  display: block;
+  width: var(--pageWidth);
+  max-width: var(--pageMaxWidth);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--bodySize);
+  line-height: var(--bodyHeight);
+}
+
+/* Developer styles */
+.todo {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* tooltip styles */
+.shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.428);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 5000;
+  top: 30px;
+  left: 30px;
+  padding: 0.3rem 0.5rem;
+  border: solid 1px var(--gray300);
+  background: var(--tooltipBackground);
+  font-family: var(--tooltipFont);
+  font-size: 0.8rem;
+  display: none;
+  line-height: 0.8rem;
+}
+
+.tt-row {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 5px;
+  margin: 3px;
+  padding: 0px;
+}
+.tt-label {
+  text-align: right;
+  font-weight: 700;
+}
+.tt-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* Chart styles */
+
+.chart-title {
+  color: var(--red);
+}
+.loading {
+  width: 100%;
+  text-align: center;
+}
+
+.chart-source {
+  font-size: 0.7rem;
+}
+
+.y-grid path {
+  display: none;
+}
+.y-grid line {
+  stroke: var(--gridGrey);
+  stroke-width: 1px;
+  stroke-dasharray: var(--dashes);
+}
+
+.axis text {
+  font-size: 0.7rem;
+}
+
+.y-axis path,
+.y-axis line {
+  display: none;
+}
+
+.x-axis path {
+  display: none;
+}
+.chart-line {
+  stroke-width: var(--chartLineThick);
+  stroke: var(--red);
+}
+.chart-area-fill {
+  fill: var(--red);
+  opacity: var(--areaOpacity);
+}
+.chart-label {
+  font-size: var(--chartLabel);
+  text-anchor: middle;
+  font-weight: 700;
+}
+.indicatorLine {
+  stroke: var(--black);
+  stroke-width: 1px;
+  stroke-dasharray: var(--indicatorDashes);
+  display: none;
+}
