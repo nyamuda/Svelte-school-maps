@@ -6,9 +6,7 @@
 
   let provinceName = "";
   let searchedSchool = "";
-
   let schoolsInProvince = [];
-
   let matchedSchools = [];
 
   //watching for any changes to the school name being searched
@@ -27,6 +25,7 @@
     }
   }
 
+  //get all schools in a province
   let getSchools = async () => {
     let data = await fetch(
       `https://api.mediahack.co.za/education/schools/?province=${provinceName}`
@@ -53,7 +52,11 @@
     searchedSchool = "";
   };
 
-  function addMap(long = 28.287, lat = -28.173, popUpText = "UTOPIA PF/S") {
+  function addMap(
+    long = 27.843574,
+    lat = -26.394832,
+    popUpText = "MADIBA PRIMARY SCHOOL"
+  ) {
     var map = L.map("map").setView([lat, long], 15);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -70,15 +73,17 @@
 </script>
 
 <div id="parent-container">
-  <p class="text-3xl text-center mt-14">Schools Lookup</p>
-  <div class="grid grid-cols-4 gap-2 w-5/6 m-auto mt-10">
-    <div class="map-container col-span-3">
+  <p class="text-4xl text-center mt-14">Schools Lookup</p>
+  <div
+    class="flex flex-col-reverse md:grid md:grid-cols-6 gap-2 m-auto mt-10 md:w-full lg:w-5/6 l"
+  >
+    <div class="map-container md:col-span-4">
       <div id="map" />
     </div>
 
     <!--SELECT PROVINCE AND SEARCH FOR A SCHOOL CONTAINER-->
-    <div class="w-full">
-      <div class="col-span-1 w-full m-auto border border-blue-500">
+    <div class="w-full md:col-span-2">
+      <div class="w-full m-auto border border-blue-500">
         <p
           class="bg-blue-700 text-gray-100 text-lg font-semibold px-2 pb-6 pt-1"
         >
@@ -176,16 +181,21 @@
 </div>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   #parent-container {
-    font-family: "Roboto", sans-serif;
+    width: 95%;
+    margin: auto;
   }
   .school-search {
     width: 98%;
   }
-
   #map {
     height: 400px;
     width: auto;
+  }
+
+  @media (min-width: 768px) {
+    #parent-container {
+      width: 98%;
+    }
   }
 </style>
