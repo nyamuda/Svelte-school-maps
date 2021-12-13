@@ -60,8 +60,7 @@
     var map = L.map("map").setView([lat, long], 15);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      attribution: "",
     }).addTo(map);
 
     L.marker([lat, long]).addTo(map).bindPopup(popUpText).openPopup();
@@ -73,19 +72,19 @@
 </script>
 
 <div id="parent-container">
-  <p class="text-4xl text-center mt-14">Schools Lookup</p>
+  <p class="text-4xl text-center mt-14">Search for Schools</p>
   <div
     class="flex flex-col-reverse md:grid md:grid-cols-6 gap-2 m-auto mt-10 md:w-full lg:w-5/6 l"
   >
     <div class="map-container md:col-span-4">
-      <div id="map" />
+      <div class="ring-1" id="map" />
     </div>
 
     <!--SELECT PROVINCE AND SEARCH FOR A SCHOOL CONTAINER-->
     <div class="w-full md:col-span-2">
       <div class="w-full m-auto border border-blue-500">
         <p
-          class="bg-blue-700 text-gray-100 text-lg font-semibold px-2 pb-6 pt-1"
+          class="bg-blue-800 text-gray-100 text-lg font-semibold px-2 pb-6 pt-1"
         >
           South Africa School Lookup
         </p>
@@ -139,7 +138,7 @@
             <input
               bind:value={searchedSchool}
               on:keypress={searchedSchool}
-              class="school-search focus:outline-none h-8 rounded px-2"
+              class="school-search focus:outline-none h-8 rounded px-2 ring-1 ring-blue-200 transition duration-200 ease-in-out focus:ring-blue-300"
               type="text"
             />
           </div>
@@ -149,7 +148,7 @@
       {#if !!searchedSchool}
         <div
           transition:slide
-          class="w-full flex justify-start m-auto mb-8 border-2 border-gray-50 max-h-32 overflow-y-scroll z-10 shadow-xl"
+          class="w-full flex justify-start m-auto mb-8 border-2 border-gray-50 max-h-32 overflow-y-scroll z-10 shadow-xl rounded-b-lg"
         >
           <ul class="w-full">
             {#if matchedSchools.length > 0}
@@ -184,6 +183,7 @@
   #parent-container {
     width: 95%;
     margin: auto;
+    font-family: "Titillium Web", sans-serif;
   }
   .school-search {
     width: 98%;
